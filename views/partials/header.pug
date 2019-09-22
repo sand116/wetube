@@ -1,15 +1,24 @@
 //- 
-    모든 링크드이 들어감
+    모든 링크들이 들어감
     div.header__column = .header__column
 
 header.header
     .header__column
-        i.fab.fa-youtube
+        a(href = routes.home) 
+            i.fab.fa-youtube 
+        //-
+         youtube logo
+    .header__column 
+        form(action=routes.search, method="get")
+            input(type="text", placeholder="Serach by term..",name="term")
+        //-
+            url에 input 값을 보고싶은 경우 get 요청 term = "input"으로 뜰것
+            action 속성은 폼 데이터(form data)를 서버로 보낼 때 해당 데이터가 도착할 URL을 명시
     .header__column
         ul
             li
-                a(href="#") Join
+                a(href=routes.join) Join
             li
-                a(href="#") Logged In
+                a(href=routes.login) Logged In
 
 
