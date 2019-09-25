@@ -17,14 +17,15 @@ app.set("view engine","pug")
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true}));
+// req -> res 사이에서 req요청의 body를 파싱해줌
 app.use(morgan("dev"));
-
 app.use(localMiddleware) //커넥션과 라우터 사이에 위치 
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
-//app.use('/users', usersRouter)
-app.use(routes.videoDetail, videoRouter);
+//app.use('/users', userRouter)
+
+app.use(routes.videos, videoRouter);
 
 export default app; // app객채를 export 한다는 의미
 

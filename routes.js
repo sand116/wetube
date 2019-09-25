@@ -9,7 +9,7 @@ const SEARCH = "/searcn";
 // Users
 
 const USERS = "/users";
-const USERS_DETAIL = "/:id";
+const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
 
@@ -28,12 +28,27 @@ const routes = {
     logout : LOGOUT,
     search : SEARCH,
     users : USERS,
-    usersDetail : USERS_DETAIL,
+    //변수 : 값 할당 , key : 함수 할당 
+    userDetail: id => {
+        if (id) {
+          return `/users/${id}`;
+        } else {
+          return USER_DETAIL;
+        }
+    },
     editProfile : EDIT_PROFILE,
     changePassword : CHANGE_PASSWORD,
     videos : VIDEOS,
     upload : UPLOAD,
-    videoDetail : VIDEO_DETAIL,
+
+    videoDetail : id => {
+        if (id) {
+          return `/videos/${id}`;
+        } else {
+          return VIDEO_DETAIL;
+        }
+      },
+      
     editVideo : EDIT_VIDEO,
     deleteVideo : DELETE_VIDEO,
 }

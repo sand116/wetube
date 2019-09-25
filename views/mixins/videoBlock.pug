@@ -1,0 +1,12 @@
+//-
+    같은 구조, 다른 정보를 담아야할 때
+    mixin 은 pug 에서 제공하는 함수 - 인자값을 받으면 video = 인자값 
+mixin videoBlock(video = {})
+    .videoBlock
+        a(href=routes.videoDetail(video.id))
+            video.videoBlock__thumbnail(src=video.videoFile, controls=true)
+            h4.videoBlock__title=video.title
+            h6.videoBlock__views=video.views 
+//-
+    video 라는 태그가 있음 - control요소 ture하기
+    
